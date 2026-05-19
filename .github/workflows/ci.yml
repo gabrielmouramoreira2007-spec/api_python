@@ -1,0 +1,40 @@
+name: CI Pipeline # Nome da sua automação que aparecerá no painel do GitHub
+
+# 1. GATILHO
+on: 
+  push:
+    branches:
+      - main # Roda sempre que enviarmos código para a branch principal
+
+# 2. TRABALHOS
+jobs:
+  test:
+    runs-on: ubuntu-latest # Usamos a versão mais recente do Ubuntu na nuvem
+
+    # 3. PASSOS
+    steps:
+      # Passo 1: Baixar o seu código do repositório para a máquina virtual
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      # Passo 2: Instalar e configurar a linguagem
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11" # A mesma versão que você usou no Dockerfile
+
+      # Passo 3: Preparar o ambiente instalando as bibliotecas
+      - name: Instalar dependências
+        run: |
+          python -m pip install --upgrade pip
+          # [AQUI É COM VOCÊ]
+          # Como você faz para instalar o seu arquivo requirements.txt no terminal? 
+          # Escreva o comando na linha de baixo:
+          
+
+      # Passo 4: A hora da verdade
+      - name: Rodar testes unitários
+        run: |
+          # [AQUI É COM VOCÊ]
+          # Escreva na linha de baixo o comando exato que usamos para rodar 
+          # os testes automatizados na sua máquina no ticket anterior:
